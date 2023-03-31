@@ -15,7 +15,7 @@ export default function Search() {
 
 const Container = styled.div`
   width: 100%;
-  padding: 20px;
+  margin: 0 0 15px 0;
 `;
 
 const SearchArea = styled.div`
