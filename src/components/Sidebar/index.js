@@ -18,7 +18,6 @@ const Container = styled.div`
   height: 100%;
   background-color: #3a3345;
   box-sizing: border-box;
-  color: #f5f2fb;
 
   div {
     width: 100%;
@@ -26,7 +25,6 @@ const Container = styled.div`
     align-items: center;
     background-color: #302738;
     padding: 15px;
-    box-sizing: border-box;
   }
 
   .icon {
