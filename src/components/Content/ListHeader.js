@@ -26,7 +26,8 @@ const Header = styled.div`
   div {
     width: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    padding: 0 0 0 40px;
   }
 `;

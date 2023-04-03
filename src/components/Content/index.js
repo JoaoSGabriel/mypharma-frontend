@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import ProductArea from "./ProductArea";
-import Search from "./Search";
 
 export default function Content() {
   return (
     <Container>
       <Title>Produtos</Title>
-      <Search />
       <ProductArea />
     </Container>
   );

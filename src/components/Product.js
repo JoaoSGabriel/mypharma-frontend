@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Border from "../Border";
+import Border from "./Border";
 
 export default function Product({ info }) {
   function currencyFormat() {
@@ -8,7 +8,6 @@ export default function Product({ info }) {
       currency: "BRL",
     });
   }
-  console.log(info);
 
   return (
     <>
@@ -39,6 +38,7 @@ const Container = styled.div`
     width: 20%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    padding: 0 0 0 40px;
   }
 `;
