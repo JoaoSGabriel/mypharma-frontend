@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Categories from "./Categories";
 
 export default function Search({ search, setSearch }) {
   function activeSearch(e) {
@@ -18,6 +19,7 @@ export default function Search({ search, setSearch }) {
           />
           <button onClick={() => setSearch("")}>Limpar pesquisa</button>
         </SearchArea>
+        <Categories />
       </Container>
     </>
   );
@@ -26,11 +28,13 @@ export default function Search({ search, setSearch }) {
 const Container = styled.div`
   width: 100%;
   margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
 `;
 
 const SearchArea = styled.div`
   input {
-    width: 400px;
+    width: 300px;
     padding: 15px;
     border: 1px solid #635d69;
     border-radius: 3px;

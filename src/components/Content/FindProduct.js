@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProductByName } from "../../services/ProductApi";
 
-import Product from "../Product";
+import ProductRow from "../ProductRow";
 
 export default function FindProduct({ search }) {
   const { data, isLoading, error } = useQuery({
@@ -18,7 +18,7 @@ export default function FindProduct({ search }) {
     return (
       <>
         {data.map((value) => (
-          <Product key={value.id} info={value} />
+          <ProductRow key={value.id} info={value} />
         ))}
       </>
     );

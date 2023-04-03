@@ -1,7 +1,15 @@
 import styled from "styled-components";
 import Border from "./Border";
 
-export default function Product({ info }) {
+export default function ProductRow({ info }) {
+  const productCategory = {
+    Bakery: "Padaria",
+    Beverage: "Bebidas",
+    Deli: "Lanches",
+    Meat: "Carnes",
+    Dairy: "Laticínios",
+  };
+
   function currencyFormat() {
     return info?.price.toLocaleString("pt-br", {
       style: "currency",
@@ -16,7 +24,7 @@ export default function Product({ info }) {
         <div>
           <img src={info?.photo_path} alt="product.img" />
         </div>
-        <div>{info?.category}</div>
+        <div>{productCategory[info?.category]}</div>
         <div>{currencyFormat()}</div>
         <div>Soon</div>
       </Container>

@@ -4,7 +4,7 @@ import AllProducts from "./AllProducts";
 import FindProduct from "./FindProduct";
 
 import ListHeader from "./ListHeader";
-import Search from "./Search";
+import Search from "./SearchArea/Search";
 
 export default function ProductArea() {
   const [search, setSearch] = useState("");
