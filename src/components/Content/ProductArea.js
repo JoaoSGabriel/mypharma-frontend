@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import AllCategoryProducts from "./AllCategoryProducts";
 import AllProducts from "./AllProducts";
 import FindProduct from "./FindProduct";
 
@@ -8,13 +9,29 @@ import Search from "./SearchArea/Search";
 
 export default function ProductArea() {
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+
+  function showProducts() {
+    if (search !== "") {
+      return <FindProduct search={search} />;
+    } else if (category !== "") {
+      return <AllCategoryProducts category={category} />;
+    } else {
+      return <AllProducts />;
+    }
+  }
 
   return (
     <>
-      <Search search={search} setSearch={setSearch} />
+      <Search
+        search={search}
+        setSearch={setSearch}
+        category={category}
+        setCategory={setCategory}
+      />
       <Container>
         <ListHeader />
-        {search ? <FindProduct search={search} /> : <AllProducts />}
+        {showProducts()}
       </Container>
     </>
   );

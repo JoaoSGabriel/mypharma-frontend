@@ -15,3 +15,11 @@ export async function getProductByName(name) {
 
   return result.json();
 }
+
+export async function getProductByCategory(name) {
+  const result = await fetch(`${API}/filter?category=${name}`, {
+    method: "GET",
+  });
+
+  return result.json();
+}

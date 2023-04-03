@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
 
-export default function Categories() {
+export default function Categories({ category, setCategory }) {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
@@ -10,13 +10,14 @@ export default function Categories() {
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
     >
-      Categorias
+      {category !== "" ? <>{category}</> : <>Categorias</>}
       <ButtonWrapper ref={dropdownRef} isActive={isActive}>
-        <span>Padaria</span>
-        <span>Bebidas</span>
-        <span>Lanches</span>
-        <span>Carnes</span>
-        <span>Laticínios</span>
+        <span onClick={() => setCategory("Bakery")}>Padaria</span>
+        <span onClick={() => setCategory("Beverage")}>Bebidas</span>
+        <span onClick={() => setCategory("Deli")}>Lanches</span>
+        <span onClick={() => setCategory("Meat")}>Carnes</span>
+        <span onClick={() => setCategory("Dairy")}>Laticínios</span>
+        <span onClick={() => setCategory("")}>Nenhuma</span>
       </ButtonWrapper>
     </Wrappler>
   );
