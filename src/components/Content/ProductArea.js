@@ -1,14 +1,20 @@
+import { useState } from "react";
 import styled from "styled-components";
+import AllProducts from "./AllProducts";
+import FindProduct from "./FindProduct";
 
 import ListHeader from "./ListHeader";
 import Search from "./Search";
 
 export default function ProductArea() {
+  const [search, setSearch] = useState("");
+
   return (
     <>
-      <Search />
+      <Search search={search} setSearch={setSearch} />
       <Container>
         <ListHeader />
+        {search ? <FindProduct search={search} /> : <AllProducts />}
       </Container>
     </>
   );
