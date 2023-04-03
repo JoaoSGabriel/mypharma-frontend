@@ -4,10 +4,10 @@ import Loader from "../Loader";
 
 import ProductRow from "../ProductRow";
 
-export default function AllCategoryProducts({ category }) {
+export default function AllCategoryProducts({ category, filter }) {
   const { data, isLoading, error } = useQuery({
     queryKey: ["allCategoryProducts"],
-    queryFn: () => getProductByCategory(category),
+    queryFn: () => getProductByCategory(category, filter),
     refetchInterval: 1000,
   });
 
