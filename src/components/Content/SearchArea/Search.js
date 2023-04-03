@@ -1,7 +1,15 @@
 import styled from "styled-components";
 import Categories from "./Categories";
+import Filters from "./Filters";
 
-export default function Search({ search, setSearch, category, setCategory }) {
+export default function Search({
+  search,
+  setSearch,
+  category,
+  setCategory,
+  filter,
+  setFilter,
+}) {
   function activeSearch(e) {
     e.preventDefault();
     setSearch(e.target.value);
@@ -20,6 +28,7 @@ export default function Search({ search, setSearch, category, setCategory }) {
           <button onClick={() => setSearch("")}>Limpar pesquisa</button>
         </SearchArea>
         <Categories category={category} setCategory={setCategory} />
+        <Filters filter={filter} setFilter={setFilter} />
       </Container>
     </>
   );

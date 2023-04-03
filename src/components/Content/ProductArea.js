@@ -10,14 +10,15 @@ import Search from "./SearchArea/Search";
 export default function ProductArea() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const [filter, setFilter] = useState("");
 
   function showProducts() {
     if (search !== "") {
       return <FindProduct search={search} />;
     } else if (category !== "") {
-      return <AllCategoryProducts category={category} />;
+      return <AllCategoryProducts category={category} filter={filter} />;
     } else {
-      return <AllProducts />;
+      return <AllProducts filter={filter} />;
     }
   }
 
@@ -28,6 +29,8 @@ export default function ProductArea() {
         setSearch={setSearch}
         category={category}
         setCategory={setCategory}
+        filter={filter}
+        setFilter={setFilter}
       />
       <Container>
         <ListHeader />
