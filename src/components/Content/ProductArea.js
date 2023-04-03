@@ -1,7 +1,14 @@
 import styled from "styled-components";
+import ListHeader from "./ListHeader";
+import Product from "./Product";
 
 export default function ProductArea() {
-  return <Container></Container>;
+  return (
+    <Container>
+      <ListHeader />
+      <Product />
+    </Container>
+  );
 }
 
 const Container = styled.div`
