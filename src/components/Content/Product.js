@@ -1,22 +1,23 @@
 import styled from "styled-components";
 import Border from "../Border";
 
-export default function Product({ product }) {
+export default function Product({ info }) {
   function currencyFormat() {
-    return product?.price.toLocaleString("pt-br", {
+    return info?.price.toLocaleString("pt-br", {
       style: "currency",
       currency: "BRL",
     });
   }
+  console.log(info);
 
   return (
     <>
       <Container>
-        <div>{product?.name}</div>
+        <div>{info?.name}</div>
         <div>
-          <img src={product?.photo_path} alt="product.img" />
+          <img src={info?.photo_path} alt="product.img" />
         </div>
-        <div>{product?.category}</div>
+        <div>{info?.category}</div>
         <div>{currencyFormat()}</div>
         <div>Soon</div>
       </Container>
