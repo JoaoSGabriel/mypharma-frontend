@@ -9,7 +9,6 @@ export async function getProducts() {
 }
 
 export async function getProductByName(name) {
-  console.log(`${API}/search?name=${name}`);
   const result = await fetch(`${API}/search?name=${name}`, {
     method: "GET",
   });

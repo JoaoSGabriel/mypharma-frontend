@@ -7,6 +7,7 @@ export default function FindProduct({ search }) {
   const { data, isLoading, error } = useQuery({
     queryKey: ["FindProducts"],
     queryFn: () => getProductByName(search),
+    refetchInterval: 1000,
   });
 
   if (isLoading) return "Loading...";
