@@ -1,7 +1,7 @@
 const API = "http://localhost:5000/api/product";
 
-export async function getProducts() {
-  const result = await fetch(`${API}`, {
+export async function getProducts(order) {
+  const result = await fetch(`${API}?filter=${order}`, {
     method: "GET",
   });
 

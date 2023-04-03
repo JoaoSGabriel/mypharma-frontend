@@ -5,12 +5,20 @@ export default function Categories({ category, setCategory }) {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
+  const productCategory = {
+    Bakery: "Padaria",
+    Beverage: "Bebidas",
+    Deli: "Lanches",
+    Meat: "Carnes",
+    Dairy: "Laticínios",
+  };
+
   return (
     <Wrappler
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
     >
-      {category !== "" ? <>{category}</> : <>Categorias</>}
+      {category !== "" ? <>{productCategory[category]}</> : <>Categorias</>}
       <ButtonWrapper ref={dropdownRef} isActive={isActive}>
         <span onClick={() => setCategory("Bakery")}>Padaria</span>
         <span onClick={() => setCategory("Beverage")}>Bebidas</span>
@@ -60,6 +68,7 @@ const ButtonWrapper = styled.div`
   box-shadow: 0 14px 30px rgba(103, 132, 187, 0.25),
     0 4px 4px rgba(103, 132, 187, 0.15);
   //effects
+  transition: all 1s ease;
   opacity: ${(props) => (props.isActive ? "1" : "0")};
   visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
   transform: ${(props) =>

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProductByName } from "../../services/ProductApi";
+import Loader from "../Loader";
 
 import ProductRow from "../ProductRow";
 
@@ -10,7 +11,7 @@ export default function FindProduct({ search }) {
     refetchInterval: 1000,
   });
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loader />;
 
   if (error) return "An error has occurred: " + error.message;
 

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProductByCategory } from "../../services/ProductApi";
+import Loader from "../Loader";
 
 import ProductRow from "../ProductRow";
 
@@ -12,7 +13,7 @@ export default function AllCategoryProducts({ category }) {
 
   if (error) return <>SOCORRO, DEU ERROR</>;
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loader />;
 
   if (data) {
     return (
