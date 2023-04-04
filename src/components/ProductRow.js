@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import CartContext from "./contexts/CartContext";
+
 import styled from "styled-components";
 import Border from "./Border";
 
 export default function ProductRow({ info }) {
+  const { cart, setCart } = useContext(CartContext);
+
   const productCategory = {
     Bakery: "Padaria",
     Beverage: "Bebidas",

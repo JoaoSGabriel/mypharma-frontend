@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CartInfo from "./CartInfo";
 import Categories from "./Categories";
 import Filters from "./Filters";
 
@@ -29,6 +30,7 @@ export default function Search({
         </SearchArea>
         <Categories category={category} setCategory={setCategory} />
         <Filters filter={filter} setFilter={setFilter} />
+        <CartInfo />
       </Container>
     </>
   );
