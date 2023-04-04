@@ -1,4 +1,4 @@
-const API = "mypharma-backend-production.up.railway.app/api/product";
+const API = "https://mypharma-backend-production.up.railway.app/api/product";
 
 export async function getProducts(filter) {
   if (filter !== "") {
@@ -9,7 +9,7 @@ export async function getProducts(filter) {
     return result.json();
   }
 
-  const result = await fetch(`${API}`, {
+  const result = await fetch(`${API}?filter=`, {
     method: "GET",
   });
 
