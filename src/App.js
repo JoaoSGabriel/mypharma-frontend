@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CartProvider } from "./components/contexts/CartContext";
 
@@ -11,7 +13,6 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <>
-      <ToastContainer />
       <QueryClientProvider client={queryClient}>
         <CartProvider>
           <Router>
@@ -21,6 +22,7 @@ function App() {
           </Router>
         </CartProvider>
       </QueryClientProvider>
+      <ToastContainer />
     </>
   );
 }

@@ -3,6 +3,8 @@ import CartContext from "./contexts/CartContext";
 
 import styled from "styled-components";
 import Border from "./Border";
+import { BsCartPlus, BsCartX } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 export default function ProductRow({ info }) {
   const { cart, setCart } = useContext(CartContext);
@@ -22,6 +24,22 @@ export default function ProductRow({ info }) {
     });
   }
 
+  function addToCart() {
+    setCart([...cart, info]);
+    toast("Adicionado ao carrinho");
+  }
+
+  function removeCart() {
+    const index = cart.indexOf(info);
+
+    if (index > -1) {
+      cart.splice(index, 1);
+    }
+
+    setCart([...cart]);
+    toast("Removido do carrinho");
+  }
+
   return (
     <>
       <Container>
@@ -31,7 +49,21 @@ export default function ProductRow({ info }) {
         </div>
         <div>{productCategory[info?.category]}</div>
         <div>{currencyFormat()}</div>
-        <div>Soon</div>
+        <div>
+          <BsCartPlus
+            onClick={addToCart}
+            style={{
+              fontSize: "1.5rem",
+              margin: "0 10px 0 0",
+              color: "#1CBE31",
+              cursor: "pointer",
+            }}
+          />
+          <BsCartX
+            onClick={removeCart}
+            style={{ fontSize: "1.5rem", color: "#F40002", cursor: "pointer" }}
+          />
+        </div>
       </Container>
       <Border />
     </>
