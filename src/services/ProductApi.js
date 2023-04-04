@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api/product";
+const API = "mypharma-backend-production.up.railway.app/api/product";
 
 export async function getProducts(filter) {
   if (filter !== "") {
