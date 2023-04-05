@@ -36,7 +36,7 @@ export async function getProductByCategory(name, filter) {
     return result.json();
   }
 
-  const result = await fetch(`${API}/filter?category=${name}`, {
+  const result = await fetch(`${API}/filter?category=${name}&filter=`, {
     method: "GET",
   });
 
