@@ -7,6 +7,7 @@ import Border from "./Border";
 
 import { BsCartPlus, BsCartX } from "react-icons/bs";
 import { toast } from "react-toastify";
+import { currencyFormat } from "./Utils";
 
 export default function ProductRow({ info }) {
   const navigate = useNavigate();
@@ -19,13 +20,6 @@ export default function ProductRow({ info }) {
     Meat: "Carnes",
     Dairy: "Laticínios",
   };
-
-  function currencyFormat() {
-    return info?.price.toLocaleString("pt-br", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
 
   function isOnCart() {
     for (let value of cart) {
@@ -66,7 +60,7 @@ export default function ProductRow({ info }) {
           <img src={info?.photo_path} alt="product.img" />
         </div>
         <div>{productCategory[info?.category]}</div>
-        <div>{currencyFormat()}</div>
+        <div>{currencyFormat(info?.price)}</div>
         <div>
           <BsCartPlus
             onClick={addToCart}
