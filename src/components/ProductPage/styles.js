@@ -6,7 +6,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 0 20px;
+  margin: 0 0 40px 20px;
   cursor: pointer;
   font-size: 1.5rem;
 `;
@@ -33,6 +33,10 @@ export const Texts = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
+  div {
+    margin: 170px 0 0 0;
+  }
+
   h1 {
     font-size: 2rem;
     margin: 0 0 20px 0;
@@ -43,4 +47,17 @@ export const Texts = styled.div`
     line-height: 2rem;
     font-weight: 400;
   }
+`;
+
+export const CartButton = styled.button`
+  width: 120px;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0 20px 0 0;
+  background-color: #00fcc3;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02rem;
+  color: #000000;
+  cursor: pointer;
 `;
