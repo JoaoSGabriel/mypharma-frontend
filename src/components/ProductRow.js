@@ -42,7 +42,14 @@ export default function ProductRow({ info }) {
   }
 
   function removeCart() {
-    const index = cart.indexOf(info);
+    let index = -1;
+
+    for (let i = 0; i <= cart.length; i++) {
+      if (cart[i]?.id === info.id) {
+        console.log("ativou");
+        index = i;
+      }
+    }
 
     if (index > -1) {
       cart.splice(index, 1);

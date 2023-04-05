@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 import { SiHomeassistantcommunitystore } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <div>
+      <div onClick={() => navigate("/")}>
         <SiHomeassistantcommunitystore className="icon" />
         Início
       </div>
@@ -25,6 +28,7 @@ const Container = styled.div`
     align-items: center;
     background-color: #302738;
     padding: 15px;
+    cursor: pointer;
   }
 
   .icon {

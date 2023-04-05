@@ -44,7 +44,7 @@ export async function getProductByCategory(name, filter) {
 }
 
 export async function getProductById(id) {
-  const result = await fetch(`${API}/?id=${id}`, {
+  const result = await fetch(`${API}/code?id=${id}`, {
     method: "GET",
   });
 

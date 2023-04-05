@@ -49,7 +49,14 @@ export default function ProductPage() {
   }
 
   function removeCart() {
-    const index = cart.indexOf(data);
+    let index = -1;
+
+    for (let i = 0; i <= cart.length; i++) {
+      if (cart[i]?.id === data.id) {
+        console.log("ativou");
+        index = i;
+      }
+    }
 
     if (index > -1) {
       cart.splice(index, 1);
