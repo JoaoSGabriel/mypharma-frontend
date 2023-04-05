@@ -27,6 +27,21 @@ export default function ProductRow({ info }) {
     });
   }
 
+  function isOnCart() {
+    for (let value of cart) {
+      if (value.id === info.id) {
+        return (
+          <BsCartX
+            onClick={removeCart}
+            style={{ fontSize: "1.5rem", color: "#F40002", cursor: "pointer" }}
+          />
+        );
+      }
+    }
+
+    return <></>;
+  }
+
   function addToCart() {
     setCart([...cart, info]);
     toast("Adicionado ao carrinho");
@@ -62,10 +77,7 @@ export default function ProductRow({ info }) {
               cursor: "pointer",
             }}
           />
-          <BsCartX
-            onClick={removeCart}
-            style={{ fontSize: "1.5rem", color: "#F40002", cursor: "pointer" }}
-          />
+          {isOnCart()}
         </div>
       </Container>
       <Border />
@@ -82,15 +94,16 @@ const Container = styled.div`
     width: 100px;
   }
 
-  div:nth-child(1) {
-    cursor: pointer;
-  }
-
   div {
     width: 20%;
     display: flex;
     align-items: center;
     justify-content: start;
     padding: 0 0 0 40px;
+    line-height: 25px;
+  }
+
+  div:nth-child(1) {
+    cursor: pointer;
   }
 `;
