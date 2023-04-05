@@ -1,12 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "./contexts/CartContext";
 
 import styled from "styled-components";
 import Border from "./Border";
+
 import { BsCartPlus, BsCartX } from "react-icons/bs";
 import { toast } from "react-toastify";
 
 export default function ProductRow({ info }) {
+  const navigate = useNavigate();
   const { cart, setCart } = useContext(CartContext);
 
   const productCategory = {
@@ -43,7 +46,7 @@ export default function ProductRow({ info }) {
   return (
     <>
       <Container>
-        <div>{info?.name}</div>
+        <div onClick={() => navigate(`/${info?.id}`)}>{info?.name}</div>
         <div>
           <img src={info?.photo_path} alt="product.img" />
         </div>
@@ -77,6 +80,10 @@ const Container = styled.div`
 
   img {
     width: 100px;
+  }
+
+  div:nth-child(1) {
+    cursor: pointer;
   }
 
   div {

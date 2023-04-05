@@ -18,6 +18,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/:productId" element={<Dashboard />} />
             </Routes>
           </Router>
         </CartProvider>

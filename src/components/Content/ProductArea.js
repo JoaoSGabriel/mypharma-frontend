@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import ProductPage from "../ProductPage";
 import AllCategoryProducts from "./AllCategoryProducts";
 import AllProducts from "./AllProducts";
 import FindProduct from "./FindProduct";
@@ -8,6 +10,8 @@ import ListHeader from "./ListHeader";
 import Search from "./SearchArea/Search";
 
 export default function ProductArea() {
+  const params = useParams();
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [filter, setFilter] = useState("");
@@ -33,8 +37,14 @@ export default function ProductArea() {
         setFilter={setFilter}
       />
       <Container>
-        <ListHeader />
-        {showProducts()}
+        {params.productId ? (
+          <ProductPage />
+        ) : (
+          <>
+            <ListHeader />
+            {showProducts()}
+          </>
+        )}
       </Container>
     </>
   );
